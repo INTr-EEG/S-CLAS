@@ -3,3 +3,7 @@ dev-*/
 *.map
 *.py
 
+resources/.DS_Store
+resources/aud/.DS_Store
+resources/imgs/.DS_Store
+.DS_Store

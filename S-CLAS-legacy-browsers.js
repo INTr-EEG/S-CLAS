@@ -212,6 +212,8 @@ var REPLAY_SIZE;
 var REPLAY;
 var COVER_SIZE;
 var COVER;
+var REPLAY_COVER_SIZE;
+var REPLAY_COVER;
 var MOUSE;
 var MOUSE_L;
 var MOUSE_L_prev;
@@ -255,6 +257,8 @@ async function experimentInit() {
   REPLAY = make_rect("replay", REPLAY_POS, REPLAY_SIZE, CLICK_BOX_OPACITY);
   COVER_SIZE = [0.17, 0.08];
   COVER = make_rect("cover", NEXT_POS, COVER_SIZE, null, "white", 0, "white");
+  REPLAY_COVER_SIZE = [0.17, 0.08];
+  REPLAY_COVER = make_rect("replay_cover", REPLAY_POS, REPLAY_COVER_SIZE, null, "white", 0, "white");
   MOUSE = new core.Mouse({"win": psychoJS.window});
   MOUSE_L = 0;
   MOUSE_L_prev = 0;
@@ -294,10 +298,10 @@ async function experimentInit() {
   }
   function get_weather() {
       var names, sizes, xys, y0;
-      names = ["cloudy", "sunny", "rainy"];
+      names = ["cloudy", "sunny", "rainy", "thundery"];
       y0 = (- 0.162);
-      xys = [[(- 0.36), (y0 + 0.005)], [(- 0.143), y0], [0.111, y0]];
-      sizes = [[0.172, 0.125], [0.177, 0.13], [0.208, 0.13]];
+      xys = [[(- 0.36), (y0 + 0.005)], [(- 0.143), y0], [(((- 0.143) + 0.177) + 0.061), y0], [(((((- 0.143) + 0.177) + 0.208) + 0.061) + 0.035), y0]];
+      sizes = [[0.172, 0.125], [0.177, 0.13], [0.208, 0.13], [0.22, 0.13]];
       return make_boxes(names, xys, sizes);
   }
   function get_tools() {
@@ -503,6 +507,8 @@ var frameN;
 var continueRoutine;
 var slide;
 var aud_file;
+var SOUND_DUR;
+var SOUND_START;
 var beginComponents;
 function beginRoutineBegin(snapshot) {
   return async function () {
@@ -516,10 +522,17 @@ function beginRoutineBegin(snapshot) {
     // update component parameters for each repeat
     slide = make_slide("slide-01");
     slide.autoDraw = true;
+    REPLAY.autoDraw = true;
     NEXT.autoDraw = true;
+    COVER.autoDraw = true;
+    COVER.opacity = 0.9;
+    REPLAY_COVER.autoDraw = true;
+    REPLAY_COVER.opacity = 0.7;
     if (USE_AUDIO) {
         aud_file = `${AUD_DIR}/S-CLAS Intro.m4a`;
         SOUND = make_sound("sound", aud_file);
+        SOUND_DUR = SOUND.getDuration();
+        SOUND_START = 0;
         SOUND.play();
     }
     
@@ -549,6 +562,27 @@ function beginRoutineEachFrame() {
         if ((MOUSE_L && NEXT.contains(MOUSE))) {
             continueRoutine = false;
         }
+        if (REPLAY.contains(MOUSE)) {
+            if (((t - SOUND_START) < SOUND_DUR)) {
+                SOUND.stop();
+            }
+            SOUND = make_sound("sound", aud_file);
+            SOUND_START = t;
+            SOUND.play();
+        }
+    }
+    if (((t - SOUND_START) >= (SOUND_DUR / 2))) {
+        REPLAY_COVER.opacity = 0;
+    }
+    if (((t - SOUND_START) >= SOUND_DUR)) {
+        COVER.opacity = 0;
+    }
+    if (SHOW_DEBUG) {
+        begin_text.text = `
+    aud_file = ${aud_file}
+    t = ${round(t, 3)}
+    sound_completed = ${((t - SOUND_START) >= SOUND_DUR)}`
+    ;
     }
     
     
@@ -597,6 +631,7 @@ function beginRoutineEnd() {
       }
     });
     NEXT.autoDraw = false;
+    REPLAY.autoDraw = false;
     slide.autoDraw = false;
     if (USE_AUDIO) {
         SOUND.stop();
@@ -658,8 +693,6 @@ var slide_num;
 var qn_num;
 var radio0s;
 var radio1s;
-var SOUND_DUR;
-var SOUND_START;
 var SLIDE_SOUND_START;
 var _pj;
 var trialComponents;
