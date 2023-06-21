@@ -5,9 +5,15 @@
 
 // store info about the experiment session:
 let expName = 'S-CLAS';  // from the Builder filename that created this script
-let expInfo = {'participant': '', 'Audio': ['Yes', 'No'], 'Debug': ['No', 'Yes']};
+let expInfo = {
+    'participant': '',
+    'School': '',
+    'Audio': ["Yes", "No"],
+    'Debug': ["No", "Yes"],
+};
 
 // Start code blocks for 'Before Experiment'
+// Run 'Before Experiment' code from functions_g
 
 function make_sound(name, filepath) {
     return new sound.Sound({"win": psychoJS.window, "value": filepath, "secs": (- 1), "stereo": true, "hamming": true, "name": name});
@@ -95,7 +101,7 @@ const psychoJS = new PsychoJS({
 // open window:
 psychoJS.openWindow({
   fullscr: true,
-  color: new util.Color([1, 1, 1]),
+  color: new util.Color([1,1,1]),
   units: 'height',
   waitBlanking: true
 });
@@ -128,54 +134,58 @@ psychoJS.start({
   expName: expName,
   expInfo: expInfo,
   resources: [
-    {'name': 'resources/aud/Replay instructions.m4a', 'path': 'resources/aud/Replay instructions.m4a'},
-    {'name': 'resources/aud/S-CLAS Intro.m4a', 'path': 'resources/aud/S-CLAS Intro.m4a'},
-    {'name': 'resources/aud/S-CLAS Q01.m4a', 'path': 'resources/aud/S-CLAS Q01.m4a'},
-    {'name': 'resources/aud/S-CLAS Q02.m4a', 'path': 'resources/aud/S-CLAS Q02.m4a'},
-    {'name': 'resources/aud/S-CLAS Q03.m4a', 'path': 'resources/aud/S-CLAS Q03.m4a'},
-    {'name': 'resources/aud/S-CLAS Q04.m4a', 'path': 'resources/aud/S-CLAS Q04.m4a'},
     {'name': 'resources/aud/S-CLAS Q05.m4a', 'path': 'resources/aud/S-CLAS Q05.m4a'},
-    {'name': 'resources/aud/S-CLAS Q06.m4a', 'path': 'resources/aud/S-CLAS Q06.m4a'},
-    {'name': 'resources/aud/S-CLAS Q07.m4a', 'path': 'resources/aud/S-CLAS Q07.m4a'},
-    {'name': 'resources/aud/S-CLAS Q08.m4a', 'path': 'resources/aud/S-CLAS Q08.m4a'},
     {'name': 'resources/aud/S-CLAS Q09a.m4a', 'path': 'resources/aud/S-CLAS Q09a.m4a'},
-    {'name': 'resources/aud/S-CLAS Q09b.m4a', 'path': 'resources/aud/S-CLAS Q09b.m4a'},
-    {'name': 'resources/aud/S-CLAS Q09c.m4a', 'path': 'resources/aud/S-CLAS Q09c.m4a'},
-    {'name': 'resources/aud/S-CLAS Q10.m4a', 'path': 'resources/aud/S-CLAS Q10.m4a'},
-    {'name': 'resources/aud/S-CLAS Q11.m4a', 'path': 'resources/aud/S-CLAS Q11.m4a'},
-    {'name': 'resources/aud/S-CLAS Q12.m4a', 'path': 'resources/aud/S-CLAS Q12.m4a'},
-    {'name': 'resources/aud/S-CLAS Q13.m4a', 'path': 'resources/aud/S-CLAS Q13.m4a'},
-    {'name': 'resources/aud/S-CLAS Q14.m4a', 'path': 'resources/aud/S-CLAS Q14.m4a'},
-    {'name': 'resources/imgs/slides/slide-01.png', 'path': 'resources/imgs/slides/slide-01.png'},
+    {'name': 'resources/aud/S-CLAS Q07.m4a', 'path': 'resources/aud/S-CLAS Q07.m4a'},
     {'name': 'resources/imgs/slides/slide-02.png', 'path': 'resources/imgs/slides/slide-02.png'},
-    {'name': 'resources/imgs/slides/slide-03.png', 'path': 'resources/imgs/slides/slide-03.png'},
-    {'name': 'resources/imgs/slides/slide-04.png', 'path': 'resources/imgs/slides/slide-04.png'},
-    {'name': 'resources/imgs/slides/slide-05.png', 'path': 'resources/imgs/slides/slide-05.png'},
-    {'name': 'resources/imgs/slides/slide-06.png', 'path': 'resources/imgs/slides/slide-06.png'},
     {'name': 'resources/imgs/slides/slide-07.png', 'path': 'resources/imgs/slides/slide-07.png'},
-    {'name': 'resources/imgs/slides/slide-08.png', 'path': 'resources/imgs/slides/slide-08.png'},
-    {'name': 'resources/imgs/slides/slide-09.png', 'path': 'resources/imgs/slides/slide-09.png'},
-    {'name': 'resources/imgs/slides/slide-10.png', 'path': 'resources/imgs/slides/slide-10.png'},
-    {'name': 'resources/imgs/slides/slide-11.png', 'path': 'resources/imgs/slides/slide-11.png'},
-    {'name': 'resources/imgs/slides/slide-12.png', 'path': 'resources/imgs/slides/slide-12.png'},
-    {'name': 'resources/imgs/slides/slide-13.png', 'path': 'resources/imgs/slides/slide-13.png'},
+    {'name': 'resources/aud/S-CLAS Q10.m4a', 'path': 'resources/aud/S-CLAS Q10.m4a'},
+    {'name': 'resources/aud/S-CLAS Q02.m4a', 'path': 'resources/aud/S-CLAS Q02.m4a'},
+    {'name': 'resources/aud/S-CLAS Q09b.m4a', 'path': 'resources/aud/S-CLAS Q09b.m4a'},
+    {'name': 'resources/aud/S-CLAS Q03.m4a', 'path': 'resources/aud/S-CLAS Q03.m4a'},
+    {'name': 'resources/aud/S-CLAS Q08.m4a', 'path': 'resources/aud/S-CLAS Q08.m4a'},
+    {'name': 'resources/aud/S-CLAS Q04.m4a', 'path': 'resources/aud/S-CLAS Q04.m4a'},
     {'name': 'resources/imgs/slides/slide-14.png', 'path': 'resources/imgs/slides/slide-14.png'},
-    {'name': 'resources/imgs/slides/slide-15.png', 'path': 'resources/imgs/slides/slide-15.png'},
-    {'name': 'resources/imgs/slides/slide-16.png', 'path': 'resources/imgs/slides/slide-16.png'},
+    {'name': 'resources/aud/S-CLAS Intro.m4a', 'path': 'resources/aud/S-CLAS Intro.m4a'},
+    {'name': 'resources/aud/S-CLAS Q13.m4a', 'path': 'resources/aud/S-CLAS Q13.m4a'},
     {'name': 'resources/imgs/slides/slide-17.png', 'path': 'resources/imgs/slides/slide-17.png'},
+    {'name': 'resources/aud/S-CLAS Q06.m4a', 'path': 'resources/aud/S-CLAS Q06.m4a'},
+    {'name': 'resources/aud/S-CLAS Q01.m4a', 'path': 'resources/aud/S-CLAS Q01.m4a'},
+    {'name': 'resources/imgs/slides/slide-05.png', 'path': 'resources/imgs/slides/slide-05.png'},
+    {'name': 'resources/aud/S-CLAS Q12.m4a', 'path': 'resources/aud/S-CLAS Q12.m4a'},
+    {'name': 'resources/aud/Replay instructions.m4a', 'path': 'resources/aud/Replay instructions.m4a'},
+    {'name': 'resources/imgs/slides/slide-11.png', 'path': 'resources/imgs/slides/slide-11.png'},
+    {'name': 'resources/imgs/slides/slide-06.png', 'path': 'resources/imgs/slides/slide-06.png'},
+    {'name': 'resources/imgs/slides/slide-13.png', 'path': 'resources/imgs/slides/slide-13.png'},
+    {'name': 'resources/aud/S-CLAS Q09c.m4a', 'path': 'resources/aud/S-CLAS Q09c.m4a'},
+    {'name': 'resources/imgs/slides/slide-03.png', 'path': 'resources/imgs/slides/slide-03.png'},
+    {'name': 'resources/imgs/slides/slide-15.png', 'path': 'resources/imgs/slides/slide-15.png'},
+    {'name': 'resources/imgs/slides/slide-09.png', 'path': 'resources/imgs/slides/slide-09.png'},
+    {'name': 'resources/imgs/slides/slide-08.png', 'path': 'resources/imgs/slides/slide-08.png'},
+    {'name': 'resources/imgs/slides/slide-10.png', 'path': 'resources/imgs/slides/slide-10.png'},
+    {'name': 'resources/imgs/slides/slide-04.png', 'path': 'resources/imgs/slides/slide-04.png'},
+    {'name': 'resources/imgs/slides/slide-12.png', 'path': 'resources/imgs/slides/slide-12.png'},
+    {'name': 'resources/aud/S-CLAS Q14.m4a', 'path': 'resources/aud/S-CLAS Q14.m4a'},
     {'name': 'resources/seqs/conditions.csv', 'path': 'resources/seqs/conditions.csv'},
+    {'name': 'resources/imgs/slides/slide-01.png', 'path': 'resources/imgs/slides/slide-01.png'},
+    {'name': 'resources/imgs/slides/slide-16.png', 'path': 'resources/imgs/slides/slide-16.png'},
+    {'name': 'resources/aud/S-CLAS Q11.m4a', 'path': 'resources/aud/S-CLAS Q11.m4a'}
   ]
 });
 
 psychoJS.experimentLogger.setLevel(core.Logger.ServerLevel.EXP);
 
 
+var currentLoop;
 var frameDur;
 async function updateInfo() {
+  currentLoop = psychoJS.experiment;  // right now there are no loops
   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
   expInfo['expName'] = expName;
-  expInfo['psychopyVersion'] = '2021.2.3';
+  expInfo['psychopyVersion'] = '2022.2.4';
   expInfo['OS'] = window.navigator.platform;
+
+  psychoJS.experiment.dataFileName = (("." + "/") + `data/${expInfo["participant"]}_${expInfo["School"]}_${expName}_${expInfo["date"]}`);
 
   // store frame rate of monitor if we can measure it successfully
   expInfo['frameRate'] = psychoJS.window.getActualFrameRate();
@@ -232,6 +242,7 @@ var routineTimer;
 async function experimentInit() {
   // Initialize components for Routine "begin"
   beginClock = new util.Clock();
+  // Run 'Begin Experiment' code from begin_code
   expVersion = "2022.09.23";
   AUD_DIR = "resources/aud";
   IMGS_DIR = "resources/imgs";
@@ -265,6 +276,7 @@ async function experimentInit() {
   SOUND = null;
   all_cimgs = {"slide-02": get_trees, "slide-03": get_vehicles, "slide-04": get_speed, "slide-05": get_weight, "slide-06": get_weather, "slide-07": get_tools, "slide-08": get_carrots, "slide-09": get_badminton, "slide-10": get_prepositions1, "slide-11": get_prepositions2, "slide-12": get_room1, "slide-13": get_pen1, "slide-14": get_pen2, "slide-15": get_animals, "slide-16": get_look, "slide-17": get_mice};
   
+  // Run 'Begin Experiment' code from specs_SCLAS
   function get_trees() {
       var names, sizes, xys;
       names = ["tree1", "tree2", "tree3", "tree4"];
@@ -407,12 +419,14 @@ async function experimentInit() {
     font: 'Open Sans',
     units: undefined, 
     pos: [0.6, 0], height: 0.02,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: undefined,
     depth: -3.0 
   });
   
   // Initialize components for Routine "trial"
   trialClock = new util.Clock();
+  // Run 'Begin Experiment' code from trial_anim
   run_anim = false;
   aimgs = null;
   starts = null;
@@ -490,6 +504,7 @@ async function experimentInit() {
     font: 'Open Sans',
     units: undefined, 
     pos: [0.6, 0], height: 0.02,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: undefined,
     depth: -2.0 
   });
@@ -514,12 +529,13 @@ function beginRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
     
-    //------Prepare to start Routine 'begin'-------
+    //--- Prepare to start Routine 'begin' ---
     t = 0;
     beginClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
+    // Run 'Begin Routine' code from begin_code
     slide = make_slide("slide-01");
     slide.autoDraw = true;
     REPLAY.autoDraw = true;
@@ -551,11 +567,12 @@ function beginRoutineBegin(snapshot) {
 
 function beginRoutineEachFrame() {
   return async function () {
-    //------Loop for each frame of Routine 'begin'-------
+    //--- Loop for each frame of Routine 'begin' ---
     // get current time
     t = beginClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    // Run 'Each Frame' code from begin_code
     MOUSE_L = MOUSE.getPressed()[0];
     if ((MOUSE_L_prev !== MOUSE_L)) {
         MOUSE_L_prev = MOUSE_L;
@@ -622,14 +639,15 @@ function beginRoutineEachFrame() {
 }
 
 
-function beginRoutineEnd() {
+function beginRoutineEnd(snapshot) {
   return async function () {
-    //------Ending Routine 'begin'-------
+    //--- Ending Routine 'begin' ---
     beginComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
     });
+    // Run 'End Routine' code from begin_code
     NEXT.autoDraw = false;
     REPLAY.autoDraw = false;
     slide.autoDraw = false;
@@ -640,13 +658,16 @@ function beginRoutineEnd() {
     // the Routine "begin" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
+    }
     return Scheduler.Event.NEXT;
-  };
+  }
 }
 
 
 var trials;
-var currentLoop;
 function trialsLoopBegin(trialsLoopScheduler, snapshot) {
   return async function() {
     TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
@@ -664,13 +685,13 @@ function trialsLoopBegin(trialsLoopScheduler, snapshot) {
     
     // Schedule all the trials in the trialList:
     trials.forEach(function() {
-      const snapshot = trials.getSnapshot();
+      snapshot = trials.getSnapshot();
     
       trialsLoopScheduler.add(importConditions(snapshot));
       trialsLoopScheduler.add(trialRoutineBegin(snapshot));
       trialsLoopScheduler.add(trialRoutineEachFrame());
-      trialsLoopScheduler.add(trialRoutineEnd());
-      trialsLoopScheduler.add(endLoopIteration(trialsLoopScheduler, snapshot));
+      trialsLoopScheduler.add(trialRoutineEnd(snapshot));
+      trialsLoopScheduler.add(trialsLoopEndIteration(trialsLoopScheduler, snapshot));
     });
     
     return Scheduler.Event.NEXT;
@@ -679,9 +700,34 @@ function trialsLoopBegin(trialsLoopScheduler, snapshot) {
 
 
 async function trialsLoopEnd() {
+  // terminate loop
   psychoJS.experiment.removeLoop(trials);
-
+  // update the current loop from the ExperimentHandler
+  if (psychoJS.experiment._unfinishedLoops.length>0)
+    currentLoop = psychoJS.experiment._unfinishedLoops.at(-1);
+  else
+    currentLoop = psychoJS.experiment;  // so we use addData from the experiment
   return Scheduler.Event.NEXT;
+}
+
+
+function trialsLoopEndIteration(scheduler, snapshot) {
+  // ------Prepare for next entry------
+  return async function () {
+    if (typeof snapshot !== 'undefined') {
+      // ------Check if user ended loop early------
+      if (snapshot.finished) {
+        // Check for and save orphaned data
+        if (psychoJS.experiment.isEntryEmpty()) {
+          psychoJS.experiment.nextEntry(snapshot);
+        }
+        scheduler.stop();
+      } else {
+        psychoJS.experiment.nextEntry(snapshot);
+      }
+    return Scheduler.Event.NEXT;
+    }
+  };
 }
 
 
@@ -700,12 +746,13 @@ function trialRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
     
-    //------Prepare to start Routine 'trial'-------
+    //--- Prepare to start Routine 'trial' ---
     t = 0;
     trialClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
+    // Run 'Begin Routine' code from trial_code
     psychoJS.experiment.addData("expVersion", expVersion);
     cimgs = [];
     cimg_names = [];
@@ -744,6 +791,7 @@ function trialRoutineBegin(snapshot) {
         }
     }
     
+    // Run 'Begin Routine' code from trial_anim
     var _pj;
     function _pj_snippets(container) {
         function in_es6(left, right) {
@@ -782,11 +830,12 @@ function trialRoutineBegin(snapshot) {
 
 function trialRoutineEachFrame() {
   return async function () {
-    //------Loop for each frame of Routine 'trial'-------
+    //--- Loop for each frame of Routine 'trial' ---
     // get current time
     t = trialClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    // Run 'Each Frame' code from trial_code
     MOUSE_L = MOUSE.getPressed()[0];
     if ((MOUSE_L_prev !== MOUSE_L)) {
         MOUSE_L_prev = MOUSE_L;
@@ -850,6 +899,7 @@ function trialRoutineEachFrame() {
     ;
     }
     
+    // Run 'Each Frame' code from trial_anim
     if (run_anim) {
         for (var i, _pj_c = 0, _pj_a = util.range(aimgs.length), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
             i = _pj_a[_pj_c];
@@ -900,14 +950,15 @@ function trialRoutineEachFrame() {
 
 
 var is_correct;
-function trialRoutineEnd() {
+function trialRoutineEnd(snapshot) {
   return async function () {
-    //------Ending Routine 'trial'-------
+    //--- Ending Routine 'trial' ---
     trialComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
     });
+    // Run 'End Routine' code from trial_code
     if (USE_AUDIO) {
         SOUND.stop();
     }
@@ -936,6 +987,7 @@ function trialRoutineEnd() {
     psychoJS.experiment.addData("end_timestamp", util.MonotonicClock.getDateStr());
     psychoJS.experiment.addData("total_seconds", globalClock.getTime());
     
+    // Run 'End Routine' code from trial_anim
     if (run_anim) {
         run_anim = false;
         aimgs = null;
@@ -944,31 +996,12 @@ function trialRoutineEnd() {
     // the Routine "trial" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
-    return Scheduler.Event.NEXT;
-  };
-}
-
-
-function endLoopIteration(scheduler, snapshot) {
-  // ------Prepare for next entry------
-  return async function () {
-    if (typeof snapshot !== 'undefined') {
-      // ------Check if user ended loop early------
-      if (snapshot.finished) {
-        // Check for and save orphaned data
-        if (psychoJS.experiment.isEntryEmpty()) {
-          psychoJS.experiment.nextEntry(snapshot);
-        }
-        scheduler.stop();
-      } else {
-        const thisTrial = snapshot.getCurrentTrial();
-        if (typeof thisTrial === 'undefined' || !('isTrials' in thisTrial) || thisTrial.isTrials) {
-          psychoJS.experiment.nextEntry(snapshot);
-        }
-      }
-    return Scheduler.Event.NEXT;
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
     }
-  };
+    return Scheduler.Event.NEXT;
+  }
 }
 
 
